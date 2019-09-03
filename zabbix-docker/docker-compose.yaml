@@ -166,7 +166,8 @@ services:
    com.zabbix.os: "alpine"
 
  zabbix-web-apache-mysql:
-  image: zabbix/zabbix-web-apache-mysql:centos-4.2-latest
+  image: zabbix-web-apache-mysql:centos-latest
+  build: ./web-apache-mysql/centos/
   ports:
    - "80:80"
    - "443:443"
