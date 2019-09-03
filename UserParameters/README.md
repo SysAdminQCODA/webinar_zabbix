@@ -18,3 +18,5 @@
 UserParameter=chave.item, codigo ou comando
 
 ```
+
+Ok, e?
