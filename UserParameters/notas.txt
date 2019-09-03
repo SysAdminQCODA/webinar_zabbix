@@ -1,0 +1,71 @@
+## CONFIGURAÇÃO DE PARAMETRO DE USUARIO FLEXIVEL ##
+
+echo "Include=/zabbix/etc/zabbix_agentd.conf.d/*.conf" > /zabbix/etc/zabbix_agentd.conf
+echo "UserParameter=calc[*],echo "$1*$2" | bc" > /zabbix/etc/zabbix_agentd.conf.d/calculadora.conf
+yum install bc net-tools -y
+systemctl restart zabbix_agentd
+
+## TESTE COM ZABBIX_GET ##
+zabbix_get -s 127.0.0.1 -k calc[10,1024]
+
+## CASO O PASSO ANTERIOR RETORNO VALOR, CRIE O ITEM NA INTERFACE DO ZABBIX ##
+add interface web:
+Nome: Calculadora
+key: calc[10,1024]
+
+
+## CONFIGURACAO DE MONITORAMENTO DO APACHE ##
+
+echo "
+<Location /server-status>
+        SetHandler server-status
+        Allow from all
+        Order deny,allow
+        #Deny from all
+</Location>
+ExtendedStatus On" > /etc/httpd/conf/httpd.conf
+systemctl restart httpd
+
+echo "{ \"data\":[" ; /usr/bin/cat /zabbix/etc/netstat.txt | /usr/bin/awk '{ print " { \"{#SOCKET}\":\"" $1 "\" },"}' | /usr/bin/sort | /usr/bin/uniq | /bin/sed -e 's/\//\\\//g' -e '$s/.$//' ; echo " ]}"
+
+
+Conexões CLOSED: {{HOST.HOST}:conexao[CLOSED].last(0)}
+Conexões ESTABLISHED: {{HOST.HOST}:conexao[ESTABLISHED].last(0)}
+Conexões LISTEN: {{HOST.HOST}:conexao[LISTEN].last(0)}
+Conexões TIME_WAIT: {{HOST.HOST}:conexao[TIME_WAIT].last(0)}
+
+
+BytesPerReq: {{HOST.HOST}:apache[BytesPerReq].last(0)}
+BytesPerSec: {{HOST.HOST}:apache[BytesPerSec].last(0)}
+ClosingConnection: {{HOST.HOST}:apache[ClosingConnection].last(0)}
+DNSLookup: {{HOST.HOST}:apache[DNSLookup].last(0)}
+GracefullyFinishing: {{HOST.HOST}:apache[GracefullyFinishing].last(0)}
+IdleCleanupOfWorker: {{HOST.HOST}:apache[IdleCleanupOfWorker].last(0)}
+IdleWorkers: {{HOST.HOST}:apache[IdleWorkers].last(0)}
+KeepAlive: {{HOST.HOST}:apache[KeepAlive].last(0)}
+Logging: {{HOST.HOST}:apache[Logging].last(0)}
+OpenSlotWithNoCurrentProcess: {{HOST.HOST}:apache[OpenSlotWithNoCurrentProcess].last(0)}
+ReadingRequest: {{HOST.HOST}:apache[ReadingRequest].last(0)}
+ReqPerSec: {{HOST.HOST}:apache[ReqPerSec].last(0)}
+SendingReply: {{HOST.HOST}:apache[SendingReply].last(0)}
+StartingUp: {{HOST.HOST}:apache[StartingUp].last(0)}
+TotalAccesses: {{HOST.HOST}:apache[TotalAccesses].last(0)}
+TotalKBytes: {{HOST.HOST}:apache[TotalKBytes].last(0)}
+Uptime: {{HOST.HOST}:apache[Uptime].last(0)}
+version: {{HOST.HOST}:apache[version].last(0)}
+WaitingForConnection: {{HOST.HOST}:apache[WaitingForConnection].last(0)}
+
+Bbegin operations: {{HOST.HOST}:mysql.status[Com_begin].last(0)}
+Bytes received: {{HOST.HOST}:mysql.status[Bytes_received].last(0)}
+Bytes sent: {{HOST.HOST}:mysql.status[Bytes_sent].last(0)}
+Commit operations: {{HOST.HOST}:mysql.status[Com_commit].last(0)}
+Delete operations: {{HOST.HOST}:mysql.status[Com_delete].last(0)}
+Insert operations: {{HOST.HOST}:mysql.status[Com_insert].last(0)}
+Queries: {{HOST.HOST}:mysql.status[Questions].last(0)}
+Rollback operations: {{HOST.HOST}:mysql.status[Com_rollback].last(0)}
+Select operations: {{HOST.HOST}:mysql.status[Com_select].last(0)}
+Slow queries: {{HOST.HOST}:mysql.status[Slow_queries].last(0)}
+Status: {{HOST.HOST}:mysql.ping.last(0)}
+Update operations: {{HOST.HOST}:mysql.status[Com_update].last(0)}
+Uptime: {{HOST.HOST}:mysql.status[Uptime].last(0)}
+Version: {{HOST.HOST}:mysql.versio.last(0)}
