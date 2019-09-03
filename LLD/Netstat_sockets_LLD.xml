@@ -11,7 +11,7 @@
         <template>
             <template>Netstat_sockets_LLD</template>
             <name>Netstat_sockets_LLD</name>
-            <description>Template criado na aula 4 com LLD personalizado para monitoramento.</description>
+            <description>Template criado no webinar com LLD personalizado para monitoramento.</description>
             <groups>
                 <group>
                     <name>Templates</name>

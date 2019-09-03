@@ -1,0 +1,19 @@
+## para executar o script de jobs_rundeck
+
+./jobs_rundeck.sh {HOST.HOST} "sudo /etc/init.d/apache2 restart"
+
+## UserParameter para monitoramento docker
+
+# --> dicovery of conteiner docker
+UserParameter=conteiner.list,echo "{ \"data\":[" ; sudo docker ps | sed -n '1!p' | awk '{print $(NF)}' | /usr/bin/awk '{ print " { \"{#CNAME}\":\"" $1 "\" },"}' | /usr/bin/sort | /usr/bin/uniq | /bin/sed -e 's/\//\\\//g' -e '$s/.$//' ; echo " ]}"
+
+# --> coleta stats conteiner docker
+UserParameter=docker.cpu.util[*],sudo docker stats $1 --no-stream | sed -n '1!p' | awk 'gsub ("%","") {print $$3}'
+UserParameter=docker.mem[*],sudo docker stats $1 --no-stream | sed -n '1!p' | awk '{print $$4}' | numfmt --from=iec-i --to=none --suffix=B | sed -e 's,B,,g'
+UserParameter=docker.mem.perc[*],sudo docker stats $1 --no-stream | sed -n '1!p' | awk 'gsub ("%","") {print $$7}'
+UserParameter=docker.netIn[*],sudo docker stats $1 --no-stream | sed -n '1!p' | awk '{print $$8}' | numfmt --from=iec --to=none --suffix=B | sed -e 's,B,,g'
+UserParameter=docker.netOut[*],sudo docker stats $1 --no-stream | sed -n '1!p' | awk '{print $$10}' | numfmt --from=iec --to=none --suffix=B | sed -e 's,B,,g'
+UserParameter=docker.blockIn[*],sudo docker stats $1 --no-stream | sed -n '1!p' | awk '{print $$11}' | numfmt --from=iec --to=none --suffix=B | sed -e 's,B,,g'
+UserParameter=docker.blockOut[*],sudo docker stats $1 --no-stream | sed -n '1!p' | awk '{print $$13}' | numfmt --from=iec --to=none --suffix=B | sed -e 's,B,,g'
+UserParameter=docker.pids[*],sudo docker stats $1 --no-stream | sed -n '1!p' | awk '{print $$14}'
+UserParameter=docker.proc[*], sudo /etc/zabbix/scripts/docker_process.sh $1

@@ -26,7 +26,7 @@ echo "
 ExtendedStatus On" > /etc/httpd/conf/httpd.conf
 systemctl restart httpd
 
-echo "{ \"data\":[" ; /usr/bin/cat /zabbix/etc/netstat.txt | /usr/bin/awk '{ print " { \"{#SOCKET}\":\"" $1 "\" },"}' | /usr/bin/sort | /usr/bin/uniq | /bin/sed -e 's/\//\\\//g' -e '$s/.$//' ; echo " ]}"
+echo "{ \"data\":[" ; /usr/bin/cat /zabbix/netstat.txt | /usr/bin/awk '{ print " { \"{#SOCKET}\":\"" $1 "\" },"}' | /usr/bin/sort | /usr/bin/uniq | /bin/sed -e 's/\//\\\//g' -e '$s/.$//' ; echo " ]}"
 
 
 Conexões CLOSED: {{HOST.HOST}:conexao[CLOSED].last(0)}

@@ -1,5 +1,5 @@
 #!/bin/bash
-# Autor: Ruan Carlos (ruan.oliveira@b2br.com.br)
+# Autor: Ruan Carlos
 
 echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
 <zabbix_export>
@@ -37,7 +37,7 @@ name=$(echo $col1 | cut -d, -f1)
           <tls_psk/>
           <templates>
               <template>
-                  <name>Template_Apache_Stats</name>
+                  <name>Template OS Linux</name>
               </template>
           </templates>
           <groups>
@@ -49,9 +49,9 @@ name=$(echo $col1 | cut -d, -f1)
               <interface>
                   <default>1</default>
                   <type>1</type>
-                  <useip>1</useip>
+                  <useip>0</useip>
                   <ip>$ip</ip>
-                  <dns/>
+                  <dns>zabbix-agent</dns>
                   <port>10050</port>
                   <bulk>1</bulk>
                   <interface_ref>if1</interface_ref>
