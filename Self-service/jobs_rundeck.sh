@@ -7,6 +7,6 @@ api="api/14/project/Meetup01/run/command"
 comando=$2
 host=$1
 curl -X "POST" -H "Accept: application/json" -H "Content-Type: application/json" -H "X-Rundeck-Auth-Token:$token_rundeck" "$rundeck/$api" -d "{
-\"project\": \"Meetup01\",
+\"project\": \"webinar-zabbix\",
 \"exec\": \"$comando\",
 \"filter\": \"$host\"}"
