@@ -1,7 +1,7 @@
 #!/bin/bash
 
-token_rundeck="Q59NM8WoY7KVlWgsNLVSu8ABU2lig5Lf"
-rundeck="http://rundeck.laboratorio.cloud:4440"
+token_rundeck="CBWVq9yLs7dP8PjzOzRMhu3ppfewXyme"
+rundeck="http://rundeck-webinar.sysadminqcoda.com:4440"
 
 api="api/14/project/Meetup01/run/command"
 comando=$2
