@@ -38,7 +38,7 @@
                     <snmp_community/>
                     <snmp_oid/>
                     <key>docker.blockIn[{HOST.HOST}]</key>
-                    <delay>30s</delay>
+                    <delay>60s</delay>
                     <history>7d</history>
                     <trends>365d</trends>
                     <status>0</status>
@@ -79,7 +79,7 @@
                     <snmp_community/>
                     <snmp_oid/>
                     <key>docker.blockOut[{HOST.HOST}]</key>
-                    <delay>30s</delay>
+                    <delay>60s</delay>
                     <history>7d</history>
                     <trends>365d</trends>
                     <status>0</status>
@@ -120,7 +120,7 @@
                     <snmp_community/>
                     <snmp_oid/>
                     <key>docker.cpu.util[{HOST.HOST}]</key>
-                    <delay>30s</delay>
+                    <delay>60s</delay>
                     <history>7d</history>
                     <trends>365d</trends>
                     <status>0</status>
@@ -161,7 +161,7 @@
                     <snmp_community/>
                     <snmp_oid/>
                     <key>docker.mem.perc[{HOST.HOST}]</key>
-                    <delay>30s</delay>
+                    <delay>60s</delay>
                     <history>7d</history>
                     <trends>365d</trends>
                     <status>0</status>
@@ -202,7 +202,7 @@
                     <snmp_community/>
                     <snmp_oid/>
                     <key>docker.mem[{HOST.HOST}]</key>
-                    <delay>30s</delay>
+                    <delay>60s</delay>
                     <history>7d</history>
                     <trends>365d</trends>
                     <status>0</status>
@@ -243,7 +243,7 @@
                     <snmp_community/>
                     <snmp_oid/>
                     <key>docker.netIn[{HOST.HOST}]</key>
-                    <delay>30s</delay>
+                    <delay>60s</delay>
                     <history>7d</history>
                     <trends>365d</trends>
                     <status>0</status>
@@ -284,7 +284,7 @@
                     <snmp_community/>
                     <snmp_oid/>
                     <key>docker.netOut[{HOST.HOST}]</key>
-                    <delay>30s</delay>
+                    <delay>60s</delay>
                     <history>7d</history>
                     <trends>365d</trends>
                     <status>0</status>
@@ -325,7 +325,7 @@
                     <snmp_community/>
                     <snmp_oid/>
                     <key>docker.pids[{HOST.HOST}]</key>
-                    <delay>30s</delay>
+                    <delay>60s</delay>
                     <history>7d</history>
                     <trends>365d</trends>
                     <status>0</status>
@@ -366,7 +366,7 @@
                     <snmp_community/>
                     <snmp_oid/>
                     <key>docker.proc[{HOST.HOST}]</key>
-                    <delay>30s</delay>
+                    <delay>60s</delay>
                     <history>7d</history>
                     <trends>365d</trends>
                     <status>0</status>
@@ -432,7 +432,7 @@
             <expression>{Template Docker Containers:docker.proc[{HOST.HOST}].last()}=0</expression>
             <recovery_mode>0</recovery_mode>
             <recovery_expression/>
-            <name>Principal processo do conteiner {HOST.HOST} não está em execução</name>
+            <name>Principal processo do container {HOST.HOST} não está em execução</name>
             <correlation_mode>0</correlation_mode>
             <correlation_tag/>
             <url/>

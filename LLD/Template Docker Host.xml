@@ -4,7 +4,7 @@
     <date>2018-06-25T14:00:56Z</date>
     <groups>
         <group>
-            <name>Infraestrutura/Docker/Conteiners</name>
+            <name>Infraestrutura/Docker/containers</name>
         </group>
         <group>
             <name>Templates</name>
@@ -28,7 +28,7 @@
                     <type>0</type>
                     <snmp_community/>
                     <snmp_oid/>
-                    <key>conteiner.list</key>
+                    <key>container.list</key>
                     <delay>60</delay>
                     <status>0</status>
                     <allowed_hosts/>
@@ -53,7 +53,7 @@
                         <conditions/>
                     </filter>
                     <lifetime>3d</lifetime>
-                    <description>Descoberta de conteiners Docker para criação de hosts</description>
+                    <description>Descoberta de containers Docker para criação de hosts</description>
                     <item_prototypes/>
                     <trigger_prototypes/>
                     <graph_prototypes/>
@@ -65,7 +65,7 @@
                             <group_links>
                                 <group_link>
                                     <group>
-                                        <name>Infraestrutura/Docker/Conteiners</name>
+                                        <name>Infraestrutura/Docker/containers</name>
                                     </group>
                                 </group_link>
                             </group_links>

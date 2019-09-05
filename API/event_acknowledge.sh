@@ -1,12 +1,16 @@
 #!/bin/sh
 #
-# Author: Ruan Carlos - ruan.oliveira@b2br.com.br
+# Cria host via API - SysAadmin QCODA
+#
+# Author: Ruan Carlos - contato@sonictecnologia.com
 
-API='http://192.168.56.103/zabbix/api_jsonrpc.php'
-ZABBIX_USER='Admin'
-ZABBIX_PASS='zabbix'
+API=$API
+ZABBIX_USER='api'
+ZABBIX_PASS=$ZABBIX_PASS
 evento=$1
 texto="$2"
+action=${3:-2}
+severity=$4
 
 authenticate()
 {
@@ -28,9 +32,14 @@ event_acknowledge()
     wget --no-check-certificate -O- -o /dev/null $API --header 'Content-Type: application/json' --post-data "{
         \"jsonrpc\": \"2.0\",
         \"method\": \"event.acknowledge\",
-        \"params\": {\"eventids\": $evento,\"message\": \"$texto\"},
+        \"params\": {
+            \"eventids\": \"$evento\",
+            \"action\": \"$action\",
+            \"message\": \"$texto\",
+            \"severity\": \"$severity\"
+        },
         \"auth\": \"$AUTH_TOKEN\",
-        \"id\": 2}"
+        \"id\": 1}"
 }
 EVENTO=$(event_acknowledge);
 

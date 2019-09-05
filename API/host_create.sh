@@ -1,12 +1,12 @@
 #!/bin/sh
 #
-# Cria host via API.
+# Cria host via API - SysAadmin QCODA
 #
 # Author: Ruan Carlos - contato@sonictecnologia.com
 
-API='http://zabbix.laboratorio.cloud/zabbix/api_jsonrpc.php'
-ZABBIX_USER='Admin'
-ZABBIX_PASS='zabbix'
+API=$API
+ZABBIX_USER='api'
+ZABBIX_PASS=$ZABBIX_PASS
 HOST=$1
 IP=$2
 
@@ -43,12 +43,12 @@ create_host(){
           ],
           \"groups\": [
               {
-                  \"groupid\": \"15\"
+                  \"groupid\": \"2\"
               }
           ],
           \"templates\": [
               {
-                  \"templateid\": \"10265\"
+                  \"templateid\": \"10001\"
               }
           ],
           \"inventory_mode\": 0

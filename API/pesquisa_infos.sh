@@ -1,15 +1,14 @@
 #!/bin/sh
 #
-# Author: Ruan Carlos - ruan.oliveira@b2br.com.br
+# Cria host via API - SysAadmin QCODA
+#
+# Author: Ruan Carlos - contato@sonictecnologia.com
 
-#HOSTNAME=''
-API='http://192.168.56.103/zabbix/api_jsonrpc.php'
+API=$API
+ZABBIX_USER='api'
+ZABBIX_PASS=$ZABBIX_PASS
 
-# CREDENCIAIS
-ZABBIX_USER='Admin'
-ZABBIX_PASS='zabbix'
-
-jq=/usr/bin/jq
+jq=jq
 
 HOSTNAME=$1
 
@@ -17,7 +16,6 @@ HOSTNAME=$1
 help() {
 	echo "**********************************"
 	echo "**      PESQUISA DE GRUPOS      **"
-	echo "**      TREINAMENTO ZABBIX      **"
 	echo "**                              **"
 	echo "**********************************"
 	echo
