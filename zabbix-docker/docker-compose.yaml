@@ -40,6 +40,7 @@ services:
    - zabbix-snmptraps
   networks:
    zbx_net_backend:
+     ipv4_address: 172.16.239.100
      aliases:
       - zabbix-server
       - zabbix-server-mysql
