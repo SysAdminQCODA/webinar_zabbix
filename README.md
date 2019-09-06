@@ -23,6 +23,8 @@
 * O que você precisa saber sobre LLD
 * Bora lá, LLD de containers, LLD de portas e serviços, LLD de ... (o que vc quiser meu brodi)
 
+##### Para quem perdeu, assiste lá. Parte 1 - https://www.youtube.com/watch?v=WVBkKou9io4 
+
 ### 05/09/2019 - 22h
 
 #### 1 Consumo da API do Zabbix  - VAMOS CODAR!
@@ -34,3 +36,5 @@
 * Scripts GUI do Zabbix
 * Acionamento de jobs no Rundeck
 * Execução sob demanda (self-service)
+
+##### Para quem perdeu, assiste lá. Parte 2 - https://www.youtube.com/watch?v=rDu3nX6cry0 
