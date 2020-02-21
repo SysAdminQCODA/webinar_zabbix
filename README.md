@@ -38,3 +38,13 @@
 * Execução sob demanda (self-service)
 
 ##### Para quem perdeu, assiste lá. Parte 2 - https://www.youtube.com/watch?v=rDu3nX6cry0 
+
+### 12/09/2019 - 22h
+
+#### 1 Mais sobre API do Zabbix  - VAMOS CODAR!
+* Uso para relatórios
+
+#### ChatOps.
+* Desenvolvimento e amostragem de ChatOps
+
+##### Para quem perdeu, assiste lá. Parte 3 - https://youtu.be/rirKWnOl2eM
