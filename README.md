@@ -44,7 +44,7 @@
 #### 1 Mais sobre API do Zabbix  - VAMOS CODAR!
 * Uso para relatórios
 
-#### ChatOps.
+#### 2 ChatOps.
 * Desenvolvimento e amostragem de ChatOps
 
 ##### Para quem perdeu, assiste lá. Parte 3 - https://youtu.be/rirKWnOl2eM
